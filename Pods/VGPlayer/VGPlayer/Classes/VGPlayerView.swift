@@ -592,7 +592,7 @@ extension VGPlayerView {
             if orientation == .landscapeLeft || orientation == .landscapeRight {
                 let rectInWindow = convert(bounds, to: UIApplication.shared.keyWindow)
                 removeFromSuperview()
-                print("123")
+                print("12345")
                 frame = rectInWindow
                 UIApplication.shared.keyWindow?.addSubview(self)
                 self.snp.remakeConstraints({ [weak self] (make) in
@@ -617,7 +617,7 @@ extension VGPlayerView {
         }
         isFullScreen = fullScreen
         fullscreenButton.isSelected = fullScreen
-        delegate?.vgPlayerView(self, willFullscreen: isFullScreen)
+//        delegate?.vgPlayerView(self, willFullscreen: isFullScreen)
     }
 }
 
