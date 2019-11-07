@@ -592,6 +592,7 @@ extension VGPlayerView {
             if orientation == .landscapeLeft || orientation == .landscapeRight {
                 let rectInWindow = convert(bounds, to: UIApplication.shared.keyWindow)
                 removeFromSuperview()
+                print("123")
                 frame = rectInWindow
                 UIApplication.shared.keyWindow?.addSubview(self)
                 self.snp.remakeConstraints({ [weak self] (make) in
@@ -599,7 +600,7 @@ extension VGPlayerView {
                     make.width.equalTo(strongSelf.superview!.bounds.height)
                     make.height.equalTo(strongSelf.superview!.bounds.width)
                 })
-            } else if orientation == .portrait{
+            } else if orientation == .portrait {
                 if parentView == nil { return }
                 removeFromSuperview()
                 parentView!.addSubview(self)
