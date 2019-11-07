@@ -617,7 +617,7 @@ extension VGPlayerView {
         }
         isFullScreen = fullScreen
         fullscreenButton.isSelected = fullScreen
-//        delegate?.vgPlayerView(self, willFullscreen: isFullScreen)
+        delegate?.vgPlayerView(self, willFullscreen: isFullScreen)
     }
 }
 

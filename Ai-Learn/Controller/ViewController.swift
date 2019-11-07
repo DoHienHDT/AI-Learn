@@ -294,7 +294,7 @@ extension ViewController: LNTouchDelegate {
            }
     }
     
-    func removeSubview(){
+    func removeSubview() {
           print("Start remove sibview")
           if let viewWithTag = self.player.displayView.viewWithTag(100) {
               viewWithTag.removeFromSuperview()
@@ -315,19 +315,21 @@ extension ViewController: VGPlayerDelegate {
     func vgPlayer(_ player: VGPlayer, bufferStateDidChange state: VGPlayerBufferstate) {
         print("buffer State", state)
     }
-    
 }
+
+
 extension ViewController: VGPlayerViewDelegate {
     
     func vgPlayerView(_ playerView: VGPlayerView, willFullscreen fullscreen: Bool) {
-
+        player.displayView.isHidden = true
     }
+    
     func vgPlayerView(didTappedClose playerView: VGPlayerView) {
         
         
     }
     func vgPlayerView(didDisplayControl playerView: VGPlayerView) {
-        UIApplication.shared.setStatusBarHidden(!playerView.isDisplayControl, with: .fade)
+      
     }
 }
 
