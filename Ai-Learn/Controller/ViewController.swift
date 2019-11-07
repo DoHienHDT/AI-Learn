@@ -52,6 +52,7 @@ class ViewController: UIViewController ,ARSCNViewDelegate{
     @IBOutlet weak var plvideoView: UIView!
     
     override func viewDidLoad() {
+        player.displayView.isHidden = true
         viewAR.addSubview(sceneLocationView)
         sceneLocationView.locationNodeTouchDelegate = self
         let cellNib = UINib(nibName: "CategoryCollectionViewCell", bundle: nil)
@@ -59,7 +60,7 @@ class ViewController: UIViewController ,ARSCNViewDelegate{
         self.checkAllCollection.register(cellNib, forCellWithReuseIdentifier: "CategoryCollectionViewCell")
         viewShadow.layer.cornerRadius = 10
         viewDetail.layer.cornerRadius = 10
-        plvideoView.layer.cornerRadius = 10
+     
         
         SVProgressHUD.show(withStatus: "Loading")
         DispatchQueue.global().async {
@@ -172,6 +173,7 @@ class ViewController: UIViewController ,ARSCNViewDelegate{
     }
   
     @IBAction func hide(_ sender: UIButton) {
+        player.displayView.isHidden = true
         removeSubview()
         plvideoView.isHidden = true
         viewDetail.isHidden = true
@@ -274,10 +276,10 @@ extension ViewController: LNTouchDelegate {
  
         self.date.text = dataJs.collection_time
         self.memo.text = dataJs.content
-        
+        player.displayView.isHidden = false
         let url = URL(string: dataJs.link_video!)!
             self.player.replaceVideo(url)
-            view.addSubview(self.player.displayView)
+            plvideoView.addSubview(self.player.displayView)
         
         self.player.play()
            self.player.backgroundMode = .proceed
@@ -321,13 +323,13 @@ extension ViewController: VGPlayerDelegate {
 extension ViewController: VGPlayerViewDelegate {
     
     func vgPlayerView(_ playerView: VGPlayerView, willFullscreen fullscreen: Bool) {
-        player.displayView.isHidden = true
+   
     }
     
     func vgPlayerView(didTappedClose playerView: VGPlayerView) {
         
-        
     }
+    
     func vgPlayerView(didDisplayControl playerView: VGPlayerView) {
       
     }
