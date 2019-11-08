@@ -195,11 +195,11 @@ class ViewController: UIViewController ,ARSCNViewDelegate{
                 sender.value = 2
                 self.distanceLb.text = "\(2)"
                 self.distance = 2.0
-            }else if Int(sender.value) > 2 && Int(sender.value) < 3 || Int(sender.value) == 3{
+            }else if Int(sender.value) > 2 && Int(sender.value) < 3 || Int(sender.value) == 3 {
                 sender.value = 3
                 self.distanceLb.text = "\(3)"
                 self.distance = 3.0
-            }else if Int(sender.value) > 3 && Int(sender.value) < 4 || Int(sender.value) == 4{
+            } else if Int(sender.value) > 3 && Int(sender.value) < 4 || Int(sender.value) == 4 {
                 sender.value = 4
                 self.distanceLb.text = "\(5)"
                 self.distance = 5.0
@@ -217,14 +217,14 @@ class ViewController: UIViewController ,ARSCNViewDelegate{
     
     @IBAction func settings(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        if sender.isSelected == true{
+        if sender.isSelected == true {
             rangerLb.isHidden = false
             viewSlider.isHidden = false
             checkAllCollection.isHidden = false
             categoryCollectionView.isHidden = false
             backBt.isHidden = true
             km.isHidden = false
-        }else{
+        } else {
             rangerLb.isHidden = true
             viewSlider.isHidden = true
             checkAllCollection.isHidden = true
