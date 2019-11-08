@@ -173,6 +173,7 @@ class ViewController: UIViewController ,ARSCNViewDelegate{
     }
   
     @IBAction func hide(_ sender: UIButton) {
+        
         player.displayView.isHidden = true
         removeSubview()
         plvideoView.isHidden = true
@@ -297,6 +298,7 @@ extension ViewController: LNTouchDelegate {
     }
     
     func removeSubview() {
+          self.player.pause()
           print("Start remove sibview")
           if let viewWithTag = self.player.displayView.viewWithTag(100) {
               viewWithTag.removeFromSuperview()
