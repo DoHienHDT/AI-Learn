@@ -191,7 +191,7 @@ class ViewController: UIViewController ,ARSCNViewDelegate{
                 sender.value = 1
                 self.distanceLb.text = "\(1)"
                 self.distance = 1.0
-            }else if Int(sender.value) > 1 && Int(sender.value) < 2 || Int(sender.value) == 2{
+            }else if Int(sender.value) > 1 && Int(sender.value) < 2 || Int(sender.value) == 2 {
                 sender.value = 2
                 self.distanceLb.text = "\(2)"
                 self.distance = 2.0
@@ -257,7 +257,7 @@ class ViewController: UIViewController ,ARSCNViewDelegate{
 extension ViewController: LNTouchDelegate {
     
     func locationNodeTouched(node: AnnotationNode) {
-        plvideoView.isHidden = false
+        
         viewDetail.isHidden = false
         viewShadow.isHidden = false
         hideButton.isHidden = false
@@ -277,24 +277,32 @@ extension ViewController: LNTouchDelegate {
  
         self.date.text = dataJs.collection_time
         self.memo.text = dataJs.content
-        player.displayView.isHidden = false
-        let url = URL(string: dataJs.link_video!)!
-            self.player.replaceVideo(url)
-            plvideoView.addSubview(self.player.displayView)
         
-        self.player.play()
-           self.player.backgroundMode = .proceed
-           self.player.delegate = self
-           self.player.displayView.tag = 100
-           self.player.displayView.delegate = self
-           self.player.displayView.titleLabel.text = dataJs.user_name
-           self.player.displayView.snp.makeConstraints { [weak self] (make) in
-               guard let strongSelf = self else { return }
-               make.top.equalTo(strongSelf.plvideoView.snp.top)
-               make.left.equalTo(strongSelf.plvideoView.snp.left)
-               make.right.equalTo(strongSelf.plvideoView.snp.right)
-               make.height.equalTo(strongSelf.plvideoView.snp.width).multipliedBy(9.0/16.0) // you can 9.0/16.0
-           }
+       
+        if dataJs.link_video != "" {
+             player.displayView.isHidden = false
+             plvideoView.isHidden = false
+            let url = URL(string: dataJs.link_video!)!
+                       self.player.replaceVideo(url)
+                       plvideoView.addSubview(self.player.displayView)
+                   
+                   self.player.play()
+                      self.player.backgroundMode = .proceed
+                      self.player.delegate = self
+                      self.player.displayView.tag = 100
+                      self.player.displayView.delegate = self
+                      self.player.displayView.titleLabel.text = dataJs.user_name
+                      self.player.displayView.snp.makeConstraints { [weak self] (make) in
+                          guard let strongSelf = self else { return }
+                          make.top.equalTo(strongSelf.plvideoView.snp.top)
+                          make.left.equalTo(strongSelf.plvideoView.snp.left)
+                          make.right.equalTo(strongSelf.plvideoView.snp.right)
+                          make.height.equalTo(strongSelf.plvideoView.snp.width).multipliedBy(9.0/16.0) // you can 9.0/16.0
+                      }
+        } else {
+            plvideoView.isHidden = true
+        }
+       
     }
     
     func removeSubview() {
@@ -352,7 +360,7 @@ extension ViewController: UICollectionViewDataSource,UICollectionViewDelegate{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
             cell.layer.cornerRadius = 5
             cell.viewSelected.backgroundColor = .clear
-            if self.checkSelected == self.listCategory.count{
+            if self.checkSelected == self.listCategory.count {
                 cell.nameCategory.textColor = UIColor.white
                 cell.nameCategory.text = "Selected None"
             } else {
@@ -473,16 +481,8 @@ extension ViewController: CLLocationManagerDelegate{
                 
                 guard let lat = Double(point.lat!) else { return }
                 guard let lng = Double(point.lng!) else { return }
-                let user_name = point.user_name
-                let content = point.content
                 
                 let dist = getDistanceFromPointToDevice(latDevice: self.locationManager.location!.coordinate.latitude, lonDevice: self.locationManager.location!.coordinate.longitude, latPoint: lat , lonPoint: lng)
-              
-//                print("---> lat API -- \(lat)")
-//                print("---> lng API -- \(lng)")
-//                print("---> name API -- \(user_name!)")
-//                print("---> distance API -- \(dist)")
-//                print("---> content API  -- \(content!)")
                 guard let cateId = point.category_id else { return }
                 
                 if dist < self.distance || dist == self.distance {
