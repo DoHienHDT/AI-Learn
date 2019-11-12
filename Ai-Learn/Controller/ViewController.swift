@@ -519,7 +519,7 @@ extension ViewController: CLLocationManagerDelegate{
         }
     }
     //Distance From Point To Device
-    func getDistanceFromPointToDevice(latDevice: Double,lonDevice: Double,latPoint: Double,lonPoint: Double) -> Double{
+    func getDistanceFromPointToDevice(latDevice: Double,lonDevice: Double,latPoint: Double,lonPoint: Double) -> Double {
 //        let pixelLocal = self.convLatLon2Pixel(lat: latDevice, lon: lonDevice, zoom: 0)
 //        let pixelPoint = self.convLatLon2Pixel(lat: latPoint, lon: lonPoint, zoom: 0)
 //        let ax = Double(pixelPoint.x!) - Double(pixelLocal.x!)
@@ -537,12 +537,6 @@ extension ViewController: CLLocationManagerDelegate{
         let c = 2 * atan2(sqrt(a), sqrt(1-a))
 
         let d = R * c
-//        print  ("latDevice \(latDevice)")
-//        print  ("lonDevice \(lonDevice)")
-//        print  ("latPoint \(latPoint)")
-//        print  ("lonPoint \(lonPoint)")
-//        print ("distance \(d)")
-//        print ("========")
         return d
     }
     //convert lat lon to Oxy
