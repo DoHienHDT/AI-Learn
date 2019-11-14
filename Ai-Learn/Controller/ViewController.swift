@@ -473,7 +473,7 @@ extension ViewController: CLLocationManagerDelegate{
     
     @objc func updateLocationDevice (){
         Timer.scheduledTimer(timeInterval: 4.75, target: self, selector: #selector(self.removeParent), userInfo: nil, repeats: false)
-        if self.locationManager.location != nil && memoList.count != 0{
+        if self.locationManager.location != nil && memoList.count != 0 {
             
             for i in 0...memoList.count-1 {
                 
@@ -490,13 +490,13 @@ extension ViewController: CLLocationManagerDelegate{
                         for y in 0...categorys.count-1 {
                             if cateId == categorys[y] {
                                 if dist < 1 || dist == 1 {
-                                    addPoint(lat: lat, lon: lng, name: "\(i)", img: point.imgString , height: 120, width: 80)
+                                    addPoint(lat: lat, lon: lng, name: "\(i)", img: point.imgString , height: 80, width: 50)
                                 } else if dist < 3 && dist > 1 || dist == 3 {
-                                    addPoint(lat: lat , lon: lng, name: "\(i)", img: point.imgString, height: 100, width: 70)
+                                    addPoint(lat: lat , lon: lng, name: "\(i)", img: point.imgString, height: 70, width: 40)
                                 } else if dist < 10 && dist > 3 || dist == 10 {
-                                    addPoint(lat: lat , lon: lng , name: "\(i)", img: point.imgString, height: 70, width: 55)
+                                    addPoint(lat: lat , lon: lng , name: "\(i)", img: point.imgString, height: 50, width: 35)
                                 } else if dist > 10 {
-                                    addPoint(lat: lat, lon: lng , name: "\(i)", img: point.imgString, height: 60, width: 40)
+                                    addPoint(lat: lat, lon: lng , name: "\(i)", img: point.imgString, height: 40, width: 20)
                                 }
                             }
                         }
@@ -511,6 +511,7 @@ extension ViewController: CLLocationManagerDelegate{
             }
         }
     }
+    
     @objc func removeParent() {
         for node in listLocationNode{
             node.annotationNode.removeFromParentNode()
