@@ -539,6 +539,7 @@ extension ViewController: CLLocationManagerDelegate{
 
         let d = R * c
         return d
+        //
     }
     //convert lat lon to Oxy
     func convLatLon2Pixel(lat: Double,lon: Double,zoom: Double) -> Pixel{
