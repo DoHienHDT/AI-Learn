@@ -17,6 +17,7 @@ import Alamofire
 import NVActivityIndicatorView
 import VGPlayer
 
+
 class ViewController: UIViewController ,ARSCNViewDelegate{
     
     var player = VGPlayer()
@@ -30,6 +31,88 @@ class ViewController: UIViewController ,ARSCNViewDelegate{
     var listCategory = [Category]()
     var categoryAll = Category(id: 99, name: "Selected None", select: 1)
     var checkSelected = 0
+    
+    let paramApi: Parameters = [
+        "data": [
+            ["name": "河川構造物",
+             "lat": 21.029526,
+             "long":105.780170,
+             "url": "https://www.dropbox.com/s/l5krv6mxxxwqzl6/%E2%91%A0%E6%B2%B3%E5%B7%9D%E6%A7%8B%E9%80%A0%E7%89%A9.mp4?dl=0",
+             "image": "pin01",
+             "idPin":"01"
+            ],
+            ["name": "自然斜面",
+             "lat": 21.030818,
+             "long":105.780116,
+             "url": "https://www.dropbox.com/s/aamcgnncpofjz57/%E2%91%A1%E8%87%AA%E7%84%B6%E6%96%9C%E9%9D%A2.mp4?dl=0",
+             "image":"pin02",
+             "idPin":"02"
+            ],
+            ["name": "橋梁",
+             "lat": 21.029526,
+             "long":105.780116,
+             "url": "https://www.dropbox.com/s/nl2ft5rnaplkjsm/%E2%91%A2%E6%A9%8B%E6%A2%81.mp4?dl=0",
+             "image":"pin04",
+             "idPin":"03"
+            ],
+            ["name": "",
+             "lat": 34.897993,
+             "long":135.820107,
+             "url": "",
+             "image":"pin02",
+             "idPin":"04"
+            ],
+            ["name": "",
+             "lat": 34.892937,
+             "long":135.807588,
+             "url": "",
+             "image":"pin04",
+             "idPin":"05"
+            ],
+            ["name": "",
+             "lat": 34.892487,
+             "long":135.809192,
+             "url": "",
+             "image":"pin02",
+             "idPin":"06"
+            ],
+            ["name": "",
+             "lat": 34.893146,
+             "long":135.811293,
+             "url": "",
+             "image":"pin04",
+             "idPin":"07"
+            ],
+            ["name": "",
+             "lat": 34.891327,
+             "long":135.807696,
+             "url": "",
+             "image":"pin05",
+             "idPin":"08"
+            ],
+            ["name": "",
+             "lat": 34.889648,
+             "long":135.809205,
+             "url": "",
+             "image":"pin02",
+             "idPin":"09"
+            ],
+            ["name": "",
+             "lat": 34.888307,
+             "long":135.814199,
+             "url": "",
+             "image":"pin05",
+             "idPin":"10"
+            ],
+            ["name": "",
+             "lat": 34.881476,
+             "long":135.823016,
+             "url": "",
+             "image":"pin04",
+             "idPin":"11"
+            ]
+        ]
+    ]
     
     @IBOutlet weak var viewEnable: UIView!
     @IBOutlet weak var checkAllCollection: UICollectionView!
@@ -52,6 +135,7 @@ class ViewController: UIViewController ,ARSCNViewDelegate{
     @IBOutlet weak var plvideoView: UIView!
     
     override func viewDidLoad() {
+        
         player.displayView.isHidden = true
         viewAR.addSubview(sceneLocationView)
         sceneLocationView.locationNodeTouchDelegate = self
@@ -60,14 +144,16 @@ class ViewController: UIViewController ,ARSCNViewDelegate{
         self.checkAllCollection.register(cellNib, forCellWithReuseIdentifier: "CategoryCollectionViewCell")
         viewShadow.layer.cornerRadius = 10
         viewDetail.layer.cornerRadius = 10
-     
         
-        SVProgressHUD.show(withStatus: "Loading")
-        DispatchQueue.global().async {
-            self.getDataMemo()
-            self.getCategory()
-        }
+        
+        //        SVProgressHUD.show(withStatus: "Loading")
+        //        DispatchQueue.global().async {
+        //            self.getDataMemo()
+        //            self.getCategory()
+        //        }
         self.setupLocationDevice()
+        updateLocationDevice()
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -84,9 +170,9 @@ class ViewController: UIViewController ,ARSCNViewDelegate{
         
         let annotationNode = LocationAnnotationNode(location: location, view: imgView)
         sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
-       
+        
         annotationNode.annotationNode.name = name
-//        print(name)
+        //        print(name)
         listLocationNode.append(annotationNode)
     }
     
@@ -101,13 +187,13 @@ class ViewController: UIViewController ,ARSCNViewDelegate{
         settingBt.isHidden = false
         sceneLocationView.run()
     }
-   
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
+        
         sceneLocationView.pause()
     }
-   
+    
     func getDataMemo(){
         guard let domain = UserDefaults.standard.value(forKey: "domain") else { return }
         let urlString = "\(domain)/api/v1/memo/list?username=vtest1"
@@ -171,7 +257,7 @@ class ViewController: UIViewController ,ARSCNViewDelegate{
             }
         }
     }
-  
+    
     @IBAction func hide(_ sender: UIButton) {
         
         player.displayView.isHidden = true
@@ -251,7 +337,7 @@ class ViewController: UIViewController ,ARSCNViewDelegate{
         // show the alert
         self.present(alert, animated: true, completion: nil)
     }
-
+    
 }
 
 extension ViewController: LNTouchDelegate {
@@ -270,50 +356,54 @@ extension ViewController: LNTouchDelegate {
         backBt.isHidden = false
         km.isHidden = true
         guard let index = Int(node.name!) else { return }
-       
-        let dataJs = memoList[index]
-        self.nameCategory.text = dataJs.category_name
-        self.nameWorker.text = dataJs.user_name
- 
-        self.date.text = dataJs.collection_time
-        self.memo.text = dataJs.content
+        print(index)
         
-       
-        if dataJs.link_video != "" {
-             player.displayView.isHidden = false
-             plvideoView.isHidden = false
-            let url = URL(string: dataJs.link_video!)!
-                       self.player.replaceVideo(url)
-                       plvideoView.addSubview(self.player.displayView)
-                   
-                   self.player.play()
-                      self.player.backgroundMode = .proceed
-                      self.player.delegate = self
-                      self.player.displayView.tag = 100
-                      self.player.displayView.delegate = self
-                      self.player.displayView.titleLabel.text = dataJs.user_name
-                      self.player.displayView.snp.makeConstraints { [weak self] (make) in
-                          guard let strongSelf = self else { return }
-                          make.top.equalTo(strongSelf.plvideoView.snp.top)
-                          make.left.equalTo(strongSelf.plvideoView.snp.left)
-                          make.right.equalTo(strongSelf.plvideoView.snp.right)
-                          make.height.equalTo(strongSelf.plvideoView.snp.width).multipliedBy(9.0/16.0) // you can 9.0/16.0
-                      }
-        } else {
-            plvideoView.isHidden = true
+        for value in paramApi {
+            let locationJSON = (value.value as? [[String: Any]])!
+            let dataPin = locationJSON[index - 1]
+            let name = dataPin["name"] as? String
+            self.nameWorker.text = ""
+            self.nameCategory.text = ""
+            self.date.text = ""
+            self.memo.text = name ?? ""
+            
+            let url = dataPin["url"] as? String
+            
+            if url != "" {
+                player.displayView.isHidden = false
+                                 plvideoView.isHidden = false
+                                 let url = URL(string: url!)!
+                                 self.player.replaceVideo(url)
+                                 plvideoView.addSubview(self.player.displayView)
+                     
+                                 self.player.play()
+                                 self.player.backgroundMode = .proceed
+                                 self.player.delegate = self
+                                 self.player.displayView.tag = 100
+                                 self.player.displayView.delegate = self
+                                 self.player.displayView.titleLabel.text = name ?? ""
+                                 self.player.displayView.snp.makeConstraints { [weak self] (make) in
+                                     guard let strongSelf = self else { return }
+                                     make.top.equalTo(strongSelf.plvideoView.snp.top)
+                                     make.left.equalTo(strongSelf.plvideoView.snp.left)
+                                     make.right.equalTo(strongSelf.plvideoView.snp.right)
+                                     make.height.equalTo(strongSelf.plvideoView.snp.width).multipliedBy(9.0/16.0) // you can 9.0/16.0
+                }
+            }else {
+                plvideoView.isHidden = true
+            }
         }
-       
     }
     
     func removeSubview() {
-          self.player.pause()
-          print("Start remove sibview")
-          if let viewWithTag = self.player.displayView.viewWithTag(100) {
-              viewWithTag.removeFromSuperview()
-          }else{
-              print("No!")
-          }
-      }
+        self.player.pause()
+        print("Start remove sibview")
+        if let viewWithTag = self.player.displayView.viewWithTag(100) {
+            viewWithTag.removeFromSuperview()
+        }else{
+            print("No!")
+        }
+    }
     
 }
 
@@ -333,7 +423,7 @@ extension ViewController: VGPlayerDelegate {
 extension ViewController: VGPlayerViewDelegate {
     
     func vgPlayerView(_ playerView: VGPlayerView, willFullscreen fullscreen: Bool) {
-   
+        
     }
     
     func vgPlayerView(didTappedClose playerView: VGPlayerView) {
@@ -341,7 +431,7 @@ extension ViewController: VGPlayerViewDelegate {
     }
     
     func vgPlayerView(didDisplayControl playerView: VGPlayerView) {
-      
+        
     }
 }
 
@@ -459,6 +549,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         return 10
     }
 }
+
 extension ViewController: CLLocationManagerDelegate{
     func setupLocationDevice() {
         locationManager.requestWhenInUseAuthorization()
@@ -468,48 +559,84 @@ extension ViewController: CLLocationManagerDelegate{
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
             Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.updateLocationDevice), userInfo: nil, repeats: true)
+          
         }
     }
     
     @objc func updateLocationDevice (){
         Timer.scheduledTimer(timeInterval: 4.75, target: self, selector: #selector(self.removeParent), userInfo: nil, repeats: false)
-        if self.locationManager.location != nil && memoList.count != 0 {
-            
-            for i in 0...memoList.count-1 {
-                
-                let point = memoList[i]
-                
-                guard let lat = Double(point.lat!) else { return }
-                guard let lng = Double(point.lng!) else { return }
-                
-                let dist = getDistanceFromPointToDevice(latDevice: self.locationManager.location!.coordinate.latitude, lonDevice: self.locationManager.location!.coordinate.longitude, latPoint: lat , lonPoint: lng)
-                guard let cateId = point.category_id else { return }
-                
-                if dist < self.distance || dist == self.distance {
-                    if self.categorys.count != 0 {
-                        for y in 0...categorys.count-1 {
-                            if cateId == categorys[y] {
-                                if dist < 1 || dist == 1 {
-                                    addPoint(lat: lat, lon: lng, name: "\(i)", img: point.imgString , height: 80, width: 50)
-                                } else if dist < 3 && dist > 1 || dist == 3 {
-                                    addPoint(lat: lat , lon: lng, name: "\(i)", img: point.imgString, height: 70, width: 40)
-                                } else if dist < 10 && dist > 3 || dist == 10 {
-                                    addPoint(lat: lat , lon: lng , name: "\(i)", img: point.imgString, height: 50, width: 35)
-                                } else if dist > 10 {
-                                    addPoint(lat: lat, lon: lng , name: "\(i)", img: point.imgString, height: 40, width: 20)
-                                }
+        //        if self.locationManager.location != nil && memoList.count != 0 {
+        
+        if self.locationManager.location != nil  {
+            for value in paramApi {
+                let locationJSON = (value.value as? [[String: Any]])!
+                for dataItem in locationJSON {
+                    
+                    let lat = dataItem["lat"] as! Double
+                    let long = dataItem["long"] as! Double
+                    let image = dataItem["image"] as! String
+                    let idPin = dataItem["idPin"] as! String
+                    let dist = getDistanceFromPointToDevice(latDevice: self.locationManager.location!.coordinate.latitude, lonDevice:
+                        self.locationManager.location!.coordinate.longitude, latPoint: lat , lonPoint: long)
+                    
+                    if dist < self.distance || dist == self.distance {
+                        if dist < 1 || dist == 1 {
+                            addPoint(lat: lat, lon: long, name: idPin, img: image , height: 120, width: 70)
+                        } else if dist < 3 && dist > 1 || dist == 3 {
+                            addPoint(lat: lat , lon: long, name: idPin, img: image, height: 70, width: 40)
+                        } else if dist < 10 && dist > 3 || dist == 10 {
+                            addPoint(lat: lat , lon: long, name: idPin, img: image, height: 50, width: 35)
+                        }  else if dist > 10 {
+                            addPoint(lat: lat , lon: long, name: idPin, img: image, height: 40, width: 20)
+                        } else {
+                            for node in listLocationNode {
+                                node.annotationNode.removeFromParentNode()
+                                sceneLocationView.removeAllNodes()
+                                sceneLocationView.scene.removeAllParticleSystems()
                             }
-                        }
-                    }else{
-                        for node in listLocationNode{
-                            node.annotationNode.removeFromParentNode()
-                            sceneLocationView.removeAllNodes()
-                            sceneLocationView.scene.removeAllParticleSystems()
                         }
                     }
                 }
             }
         }
+        
+        //
+        //
+        //            for i in 0...memoList.count-1 {
+        //
+        //                let point = memoList[i]
+        //
+        //                guard let lat = Double(point.lat!) else { return }
+        //                guard let lng = Double(point.lng!) else { return }
+        //
+        //                let dist = getDistanceFromPointToDevice(latDevice: self.locationManager.location!.coordinate.latitude, lonDevice: self.locationManager.location!.coordinate.longitude, latPoint: lat , lonPoint: lng)
+        //                guard let cateId = point.category_id else { return }
+        //
+        //                if dist < self.distance || dist == self.distance {
+        //                    if self.categorys.count != 0 {
+        //                        for y in 0...categorys.count-1 {
+        //                            if cateId == categorys[y] {
+        //                                if dist < 1 || dist == 1 {
+        //                                    addPoint(lat: lat, lon: lng, name: "\(i)", img: point.imgString , height: 80, width: 50)
+        //                                } else if dist < 3 && dist > 1 || dist == 3 {
+        //                                    addPoint(lat: lat , lon: lng, name: "\(i)", img: point.imgString, height: 70, width: 40)
+        //                                } else if dist < 10 && dist > 3 || dist == 10 {
+        //                                    addPoint(lat: lat , lon: lng , name: "\(i)", img: point.imgString, height: 50, width: 35)
+        //                                } else if dist > 10 {
+        //                                    addPoint(lat: lat, lon: lng , name: "\(i)", img: point.imgString, height: 40, width: 20)
+        //                                }
+        //                            }
+        //                        }
+        //                    } else {
+        //                                for node in listLocationNode{
+        //                                    node.annotationNode.removeFromParentNode()
+        //                                    sceneLocationView.removeAllNodes()
+        //                                    sceneLocationView.scene.removeAllParticleSystems()
+        //                                }
+        //                    }
+        //                }
+        //            }
+        //        }
     }
     
     @objc func removeParent() {
@@ -521,22 +648,22 @@ extension ViewController: CLLocationManagerDelegate{
     }
     //Distance From Point To Device
     func getDistanceFromPointToDevice(latDevice: Double,lonDevice: Double,latPoint: Double,lonPoint: Double) -> Double {
-//        let pixelLocal = self.convLatLon2Pixel(lat: latDevice, lon: lonDevice, zoom: 0)
-//        let pixelPoint = self.convLatLon2Pixel(lat: latPoint, lon: lonPoint, zoom: 0)
-//        let ax = Double(pixelPoint.x!) - Double(pixelLocal.x!)
-//        let az = Double(pixelPoint.z!) - Double(pixelLocal.z!)
-//        let a = (pow(ax, 2) + pow(az, 2)) * 10000
+        //        let pixelLocal = self.convLatLon2Pixel(lat: latDevice, lon: lonDevice, zoom: 0)
+        //        let pixelPoint = self.convLatLon2Pixel(lat: latPoint, lon: lonPoint, zoom: 0)
+        //        let ax = Double(pixelPoint.x!) - Double(pixelLocal.x!)
+        //        let az = Double(pixelPoint.z!) - Double(pixelLocal.z!)
+        //        let a = (pow(ax, 2) + pow(az, 2)) * 10000
         let R: Double = 6371.0 // kilometres
         let φ1 = latDevice * .pi / 180
         let φ2 = latPoint * .pi / 180
         let Δφ = (latPoint-latDevice) * .pi / 180
         let Δλ = (lonPoint-lonDevice) * .pi / 180
-
+        
         let a = sin(Δφ/2) * sin(Δφ/2) +
-                cos(φ1) * cos(φ2) *
-                sin(Δλ/2) * sin(Δλ/2);
+            cos(φ1) * cos(φ2) *
+            sin(Δλ/2) * sin(Δλ/2);
         let c = 2 * atan2(sqrt(a), sqrt(1-a))
-
+        
         let d = R * c
         return d
         //

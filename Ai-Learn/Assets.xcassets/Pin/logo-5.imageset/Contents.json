@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "logo-5.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "color_Dolphin-3.png",
       "scale" : "2x"
     },
     {

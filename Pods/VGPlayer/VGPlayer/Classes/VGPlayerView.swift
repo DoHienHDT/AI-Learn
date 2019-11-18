@@ -592,7 +592,7 @@ extension VGPlayerView {
             if orientation == .landscapeLeft || orientation == .landscapeRight {
                 let rectInWindow = convert(bounds, to: UIApplication.shared.keyWindow)
                 removeFromSuperview()
-                print("12345")
+               
                 frame = rectInWindow
                 UIApplication.shared.keyWindow?.addSubview(self)
                 self.snp.remakeConstraints({ [weak self] (make) in
