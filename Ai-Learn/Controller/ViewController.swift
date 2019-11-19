@@ -35,24 +35,24 @@ class ViewController: UIViewController ,ARSCNViewDelegate{
     let paramApi: Parameters = [
         "data": [
             ["name": "河川構造物",
-             "lat": 21.029526,
-             "long":105.780170,
+             "lat": 34.888859,
+             "long":135.811347,
              "url": "https://www.dropbox.com/s/l5krv6mxxxwqzl6/%E2%91%A0%E6%B2%B3%E5%B7%9D%E6%A7%8B%E9%80%A0%E7%89%A9.mp4?dl=0",
              "image": "pin01",
              "idPin":"01"
             ],
             ["name": "自然斜面",
-             "lat": 21.030818,
-             "long":105.780116,
+             "lat": 34.891848,
+             "long":135.812808,
              "url": "https://www.dropbox.com/s/aamcgnncpofjz57/%E2%91%A1%E8%87%AA%E7%84%B6%E6%96%9C%E9%9D%A2.mp4?dl=0",
-             "image":"pin02",
+             "image":"pin01",
              "idPin":"02"
             ],
             ["name": "橋梁",
-             "lat": 21.029526,
-             "long":105.780116,
+             "lat": 34.892894,
+             "long":135.806164,
              "url": "https://www.dropbox.com/s/nl2ft5rnaplkjsm/%E2%91%A2%E6%A9%8B%E6%A2%81.mp4?dl=0",
-             "image":"pin04",
+             "image":"pin01",
              "idPin":"03"
             ],
             ["name": "",
@@ -578,7 +578,7 @@ extension ViewController: CLLocationManagerDelegate{
                     let idPin = dataItem["idPin"] as! String
                     let dist = getDistanceFromPointToDevice(latDevice: self.locationManager.location!.coordinate.latitude, lonDevice:
                         self.locationManager.location!.coordinate.longitude, latPoint: lat , lonPoint: long)
-                    
+//                    print(dist)
                     if dist < self.distance || dist == self.distance {
                         if dist < 1 || dist == 1 {
                             addPoint(lat: lat, lon: long, name: idPin, img: image , height: 120, width: 70)
