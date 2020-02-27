@@ -14,15 +14,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        if UserDefaults.standard.value(forKey: "check") != nil {
-            if UserDefaults.standard.value(forKey: "check") as! Bool == true {
-                let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let exampleVC = storyBoard.instantiateViewController(withIdentifier:"AR")
-                self.window = UIWindow(frame: UIScreen.main.bounds)
-                self.window?.rootViewController = exampleVC
-                self.window?.makeKeyAndVisible()
-            }
-        }
+//        if UserDefaults.standard.value(forKey: "check") != nil {
+//            if UserDefaults.standard.value(forKey: "check") as! Bool == true {
+//                let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//                let exampleVC = storyBoard.instantiateViewController(withIdentifier:"AR")
+//                self.window = UIWindow(frame: UIScreen.main.bounds)
+//                self.window?.rootViewController = exampleVC
+//                self.window?.makeKeyAndVisible()
+//            }
+//        }
+        
+        let viewController = SplashViewController(nibName: nil, bundle: nil)
+        let navigationController = UINavigationController()
+        navigationController.viewControllers = [viewController]
+        self.window!.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
         return true
     }
 

@@ -1,43 +1,24 @@
 PODS:
   - Alamofire (4.8.2)
-  - ARCL (1.2.0)
-  - NVActivityIndicatorView (4.8.0):
-    - NVActivityIndicatorView/Presenter (= 4.8.0)
-  - NVActivityIndicatorView/Presenter (4.8.0)
-  - SkyFloatingLabelTextField (3.7.0)
-  - SnapKit (4.0.1)
+  - ARCL (1.3.0)
   - SVProgressHUD (2.2.5)
-  - VGPlayer (0.2.0):
-    - SnapKit (~> 4.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - ARCL
-  - NVActivityIndicatorView
-  - SkyFloatingLabelTextField
   - SVProgressHUD
-  - VGPlayer
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Alamofire
     - ARCL
-    - SkyFloatingLabelTextField
     - SVProgressHUD
-  trunk:
-    - NVActivityIndicatorView
-    - SnapKit
-    - VGPlayer
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  ARCL: c33685a61647ceeb1cb768b20053a7a8e1e2b261
-  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
-  SkyFloatingLabelTextField: 4b46db0ab1ccde0919cded29c656e6b4805eda04
-  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  ARCL: db48b6927d6f3f49f29568295ed91c94ab8d4aab
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  VGPlayer: a1787135559aa3b9201ebdc733ee283315492289
 
-PODFILE CHECKSUM: 68c554ac473c4d0c037956fcb06b5f89fba28a0e
+PODFILE CHECKSUM: 6a458c8c09b2e75f82ec59d69e867e19ce4a265f
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.0.beta.3

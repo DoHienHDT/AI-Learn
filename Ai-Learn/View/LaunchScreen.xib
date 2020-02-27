@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="companyCode" translatesAutoresizingMaskIntoConstraints="NO" id="AGd-3V-hHw">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Ai-PICK GO)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stt-Fr-ea5">
+                    <rect key="frame" x="114" y="430" width="186.5" height="36"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                    <color key="textColor" red="0.9862299272161158" green="1" blue="0.89794269060611931" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ver.1.0.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu7-Lp-lHX">
+                    <rect key="frame" x="167.5" y="486" width="79" height="24"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" red="0.9862299272161158" green="1" blue="0.89794269060611931" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="AGd-3V-hHw" secondAttribute="bottom" id="0ms-pb-hmy"/>
+                <constraint firstItem="fu7-Lp-lHX" firstAttribute="top" secondItem="stt-Fr-ea5" secondAttribute="bottom" constant="20" id="LBF-7W-cGb"/>
+                <constraint firstItem="stt-Fr-ea5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NKc-ga-f0a"/>
+                <constraint firstItem="fu7-Lp-lHX" firstAttribute="centerX" secondItem="stt-Fr-ea5" secondAttribute="centerX" id="dS0-hP-rAb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AGd-3V-hHw" secondAttribute="trailing" id="eZy-Wf-Me7"/>
+                <constraint firstItem="stt-Fr-ea5" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="qaF-ir-bO5"/>
+                <constraint firstItem="AGd-3V-hHw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qvF-GZ-dHB"/>
+                <constraint firstItem="AGd-3V-hHw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xuB-I0-4vD"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="132" y="137"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="companyCode" width="375" height="667"/>
+    </resources>
+</document>

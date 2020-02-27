@@ -8,6 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		2D28A9EFDC65DD4072581935 /* Pods_Ai_Learn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1726E98DB2AF23297ADE84 /* Pods_Ai_Learn.framework */; };
+		8004135D2406220F00047FB5 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8004135B2406220F00047FB5 /* SplashViewController.swift */; };
+		8004135E2406220F00047FB5 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8004135C2406220F00047FB5 /* SplashViewController.xib */; };
+		800413612406225800047FB5 /* CompanyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8004135F2406225800047FB5 /* CompanyCodeViewController.swift */; };
+		800413622406225800047FB5 /* CompanyCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800413602406225800047FB5 /* CompanyCodeViewController.xib */; };
+		800413662406228200047FB5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800413642406228200047FB5 /* LaunchScreen.xib */; };
+		800413682406234900047FB5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800413672406234900047FB5 /* BaseViewController.swift */; };
+		8004136A2406268C00047FB5 /* InternetConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800413692406268C00047FB5 /* InternetConnectionManager.swift */; };
+		8004136C240626FA00047FB5 /* JSONConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8004136B240626FA00047FB5 /* JSONConstants.swift */; };
+		8004136F2406275E00047FB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8004136D2406275E00047FB5 /* LoginViewController.swift */; };
+		800413702406275E00047FB5 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8004136E2406275E00047FB5 /* LoginViewController.xib */; };
+		8004137324064ACA00047FB5 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8004137124064ACA00047FB5 /* ARViewController.swift */; };
+		8004137424064ACA00047FB5 /* ARViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8004137224064ACA00047FB5 /* ARViewController.xib */; };
+		8830444123B59AF500C18C9F /* DataPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8830444023B59AF500C18C9F /* DataPin.swift */; };
 		B3C2703C2316840200E3221C /* CompanyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C2703B2316840200E3221C /* CompanyCode.swift */; };
 		B3C2703E231686BC00E3221C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C2703D231686BC00E3221C /* Category.swift */; };
 		B3E2B8C5230D3F9A007C34A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2B8C4230D3F9A007C34A7 /* AppDelegate.swift */; };
@@ -15,29 +28,36 @@
 		B3E2B8CC230D3F9D007C34A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3E2B8CB230D3F9D007C34A7 /* Assets.xcassets */; };
 		B3E2B8CF230D3F9D007C34A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E2B8CD230D3F9D007C34A7 /* LaunchScreen.storyboard */; };
 		B3E2B8D9230D40C0007C34A7 /* Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2B8D7230D40C0007C34A7 /* Pixel.swift */; };
-		B3E2B8E1230D40CF007C34A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2B8DD230D40CF007C34A7 /* LoginViewController.swift */; };
-		B3E2B8E2230D40CF007C34A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2B8DE230D40CF007C34A7 /* ViewController.swift */; };
-		B3E2B8E3230D40CF007C34A7 /* CodeCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2B8DF230D40CF007C34A7 /* CodeCompanyViewController.swift */; };
 		B3E2B8E5230D4607007C34A7 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2B8E4230D4607007C34A7 /* Memo.swift */; };
 		B3E6EB4C2317EEF500552A4B /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E6EB4A2317EEF500552A4B /* CategoryCollectionViewCell.xib */; };
 		B3E6EB4D2317EEF500552A4B /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E6EB4B2317EEF500552A4B /* CategoryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8004135B2406220F00047FB5 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		8004135C2406220F00047FB5 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		8004135F2406225800047FB5 /* CompanyCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCodeViewController.swift; sourceTree = "<group>"; };
+		800413602406225800047FB5 /* CompanyCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyCodeViewController.xib; sourceTree = "<group>"; };
+		800413642406228200047FB5 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		800413672406234900047FB5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		800413692406268C00047FB5 /* InternetConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionManager.swift; sourceTree = "<group>"; };
+		8004136B240626FA00047FB5 /* JSONConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConstants.swift; sourceTree = "<group>"; };
+		8004136D2406275E00047FB5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8004136E2406275E00047FB5 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		8004137124064ACA00047FB5 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		8004137224064ACA00047FB5 /* ARViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ARViewController.xib; sourceTree = "<group>"; };
 		876F8B44AC5A1B56E9F3E94A /* Pods-Ai-Learn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ai-Learn.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ai-Learn/Pods-Ai-Learn.release.xcconfig"; sourceTree = "<group>"; };
+		8830444023B59AF500C18C9F /* DataPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPin.swift; sourceTree = "<group>"; };
 		AE1726E98DB2AF23297ADE84 /* Pods_Ai_Learn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ai_Learn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3C2703B2316840200E3221C /* CompanyCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyCode.swift; sourceTree = "<group>"; };
 		B3C2703D231686BC00E3221C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		B3E2B8C1230D3F9A007C34A7 /* Ai-Learn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ai-Learn.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3E2B8C1230D3F9A007C34A7 /* Ai-PICK GO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ai-PICK GO.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E2B8C4230D3F9A007C34A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3E2B8C9230D3F9A007C34A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3E2B8CB230D3F9D007C34A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3E2B8CE230D3F9D007C34A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3E2B8D0230D3F9D007C34A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3E2B8D7230D40C0007C34A7 /* Pixel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pixel.swift; sourceTree = "<group>"; };
-		B3E2B8DD230D40CF007C34A7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		B3E2B8DE230D40CF007C34A7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B3E2B8DF230D40CF007C34A7 /* CodeCompanyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeCompanyViewController.swift; sourceTree = "<group>"; };
 		B3E2B8E4230D4607007C34A7 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		B3E6EB4A2317EEF500552A4B /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		B3E6EB4B2317EEF500552A4B /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -76,9 +96,15 @@
 		B3CC7DC72320F64A00834052 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B3E2B8DF230D40CF007C34A7 /* CodeCompanyViewController.swift */,
-				B3E2B8DD230D40CF007C34A7 /* LoginViewController.swift */,
-				B3E2B8DE230D40CF007C34A7 /* ViewController.swift */,
+				800413672406234900047FB5 /* BaseViewController.swift */,
+				8004135B2406220F00047FB5 /* SplashViewController.swift */,
+				8004135C2406220F00047FB5 /* SplashViewController.xib */,
+				8004135F2406225800047FB5 /* CompanyCodeViewController.swift */,
+				800413602406225800047FB5 /* CompanyCodeViewController.xib */,
+				8004136D2406275E00047FB5 /* LoginViewController.swift */,
+				8004136E2406275E00047FB5 /* LoginViewController.xib */,
+				8004137124064ACA00047FB5 /* ARViewController.swift */,
+				8004137224064ACA00047FB5 /* ARViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -88,6 +114,7 @@
 			children = (
 				B3E6EB4B2317EEF500552A4B /* CategoryCollectionViewCell.swift */,
 				B3E6EB4A2317EEF500552A4B /* CategoryCollectionViewCell.xib */,
+				800413642406228200047FB5 /* LaunchScreen.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -99,6 +126,9 @@
 				B3E2B8E4230D4607007C34A7 /* Memo.swift */,
 				B3C2703B2316840200E3221C /* CompanyCode.swift */,
 				B3C2703D231686BC00E3221C /* Category.swift */,
+				8830444023B59AF500C18C9F /* DataPin.swift */,
+				800413692406268C00047FB5 /* InternetConnectionManager.swift */,
+				8004136B240626FA00047FB5 /* JSONConstants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -116,7 +146,7 @@
 		B3E2B8C2230D3F9A007C34A7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B3E2B8C1230D3F9A007C34A7 /* Ai-Learn.app */,
+				B3E2B8C1230D3F9A007C34A7 /* Ai-PICK GO.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,7 +185,7 @@
 			);
 			name = "Ai-Learn";
 			productName = "Ai-Learn";
-			productReference = B3E2B8C1230D3F9A007C34A7 /* Ai-Learn.app */;
+			productReference = B3E2B8C1230D3F9A007C34A7 /* Ai-PICK GO.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -196,9 +226,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				800413702406275E00047FB5 /* LoginViewController.xib in Resources */,
 				B3E6EB4C2317EEF500552A4B /* CategoryCollectionViewCell.xib in Resources */,
+				800413622406225800047FB5 /* CompanyCodeViewController.xib in Resources */,
 				B3E2B8CF230D3F9D007C34A7 /* LaunchScreen.storyboard in Resources */,
+				800413662406228200047FB5 /* LaunchScreen.xib in Resources */,
 				B3E2B8CC230D3F9D007C34A7 /* Assets.xcassets in Resources */,
+				8004135E2406220F00047FB5 /* SplashViewController.xib in Resources */,
+				8004137424064ACA00047FB5 /* ARViewController.xib in Resources */,
 				B3E2B8CA230D3F9A007C34A7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,15 +287,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3E2B8E1230D40CF007C34A7 /* LoginViewController.swift in Sources */,
 				B3E2B8C5230D3F9A007C34A7 /* AppDelegate.swift in Sources */,
-				B3E2B8E3230D40CF007C34A7 /* CodeCompanyViewController.swift in Sources */,
-				B3E2B8E2230D40CF007C34A7 /* ViewController.swift in Sources */,
+				8004136C240626FA00047FB5 /* JSONConstants.swift in Sources */,
 				B3E6EB4D2317EEF500552A4B /* CategoryCollectionViewCell.swift in Sources */,
 				B3C2703E231686BC00E3221C /* Category.swift in Sources */,
+				800413612406225800047FB5 /* CompanyCodeViewController.swift in Sources */,
 				B3E2B8E5230D4607007C34A7 /* Memo.swift in Sources */,
+				800413682406234900047FB5 /* BaseViewController.swift in Sources */,
+				8004137324064ACA00047FB5 /* ARViewController.swift in Sources */,
+				8830444123B59AF500C18C9F /* DataPin.swift in Sources */,
+				8004136A2406268C00047FB5 /* InternetConnectionManager.swift in Sources */,
 				B3C2703C2316840200E3221C /* CompanyCode.swift in Sources */,
 				B3E2B8D9230D40C0007C34A7 /* Pixel.swift in Sources */,
+				8004136F2406275E00047FB5 /* LoginViewController.swift in Sources */,
+				8004135D2406220F00047FB5 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,16 +448,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = V6K5R838AQ;
+				CURRENT_PROJECT_VERSION = 17;
+				DEVELOPMENT_TEAM = 9TPJJNUR63;
 				INFOPLIST_FILE = "Ai-Learn/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "IOS.Ai-Learn";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = co.jp.Ai.PICK.GO;
+				PRODUCT_NAME = "Ai-PICK GO";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -429,16 +470,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = V6K5R838AQ;
+				CURRENT_PROJECT_VERSION = 17;
+				DEVELOPMENT_TEAM = 9TPJJNUR63;
 				INFOPLIST_FILE = "Ai-Learn/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "IOS.Ai-Learn";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = co.jp.Ai.PICK.GO;
+				PRODUCT_NAME = "Ai-PICK GO";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

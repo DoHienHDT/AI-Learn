@@ -7,10 +7,7 @@ target 'Ai-Learn' do
 
   # Pods for Ai-Learn
   pod 'SVProgressHUD'
-  pod 'SkyFloatingLabelTextField'
-  pod 'ARCL'
   pod 'Alamofire'
-  pod 'NVActivityIndicatorView'
-#  pod 'SnapKit'
-  pod 'VGPlayer'
+  pod 'ARCL'
+
 end
