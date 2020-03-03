@@ -59,7 +59,6 @@ class LoginViewController: BaseViewController {
         }
     }
     
-    
     @IBAction func loginButtonTouched(_ sender: Any) {
         if InternetConnectionManager.isConnectedToNetwork() {
             SVProgressHUD.show()
@@ -72,6 +71,7 @@ class LoginViewController: BaseViewController {
         }
     }
 }
+
 extension LoginViewController: UITextFieldDelegate {
     @objc func dismissKeyboard() {
         view.endEditing(true)
